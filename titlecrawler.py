@@ -24,7 +24,7 @@ def html_parser(text, url):
             print url
         for a in html.find_all('a', href=True):
             url = a['href']
-            if url.startswith("http"):
+            if url.startswith("http") and url not in visited:
                 to_visit.append(url)
 
 if __name__ == "__main__":
