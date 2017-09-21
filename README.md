@@ -1,6 +1,6 @@
 ## Title Crawler
 
-A web crawler that prints title of all web pages is crawls. And does so in 40 lines of python.
+A web crawler that prints title of all web pages it crawls. And does so in 40 lines of python.
 
 #### How to use:
 You need [Requests](http://docs.python-requests.org/en/master/) and [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) installed either globally or in a virtualenv.
