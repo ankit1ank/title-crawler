@@ -16,6 +16,7 @@ def get_request(url):
             pass
 
 def html_parser(text, url):
+    print len(to_visit)
     if text:
         html = BeautifulSoup(text, "html.parser")
         if html.title:
@@ -27,12 +28,17 @@ def html_parser(text, url):
             if url.startswith("http") and url not in visited:
                 to_visit.append(url)
 
+def crawl():
+    first_url = to_visit.pop(0)
+    text = get_request(first_url)
+    html_parser(text, first_url)
+    if len(to_visit) != 0:
+        crawl()
+
 if __name__ == "__main__":
     try:
         if len(argv) == 2:
             to_visit = [argv[1]]
-        for url in to_visit:
-            text = get_request(url)
-            html_parser(text, url)
+        crawl()
     except KeyboardInterrupt:
         print "\n\nBye :)"
